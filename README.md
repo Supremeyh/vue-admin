@@ -3,35 +3,25 @@ this is vue-admin, created by sea, intialized on 2018.12.1.
 
 ### Intialize 
 
-vue cli 3
+vue cli 3 ` npm install -g @vue/cli  `
 
-` npm install -g @vue/cli  `
+create a new project (manually: Balel/TypeScript/Router/Vuex/CSS Pre-processors/Unit Testing) ` vue create vue-admin (or vue ui) `
 
-create a new project ( manually: Balel/TypeScript/Router/Vuex/CSS Pre-processors/Unit Testing )
+project setup ` npm install `
 
-` vue create vue-admin  (or vue ui) `
+compiles and hot-reloads for development ` npm run serve `
 
-project setup
+compiles and minifies for production ` npm run build `
 
-` npm install `
+run your tests ` npm run test `
 
-compiles and hot-reloads for development
+lints and fixes files ` npm run lint `
 
-` npm run serve `
+run your unit tests ` npm run test:unit `
 
-compiles and minifies for production
 
-` npm run build `
+### plugins
 
-run your tests
-
-` npm run test `
-
-lints and fixes files
-
-` npm run lint `
-
-run your unit tests
-
-` npm run test:unit `
-
+>  Vue 引入 TypeScript
+* 安装vue的官方插件: npm i vue-class-component vue-property-decorator --save
+* npm i ts-loader typescript   tslint tslint-loader tslint-config-standard --save-dev
