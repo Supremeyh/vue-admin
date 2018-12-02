@@ -25,3 +25,16 @@ run your unit tests ` npm run test:unit `
 >  Vue 引入 TypeScript
 * 安装vue的官方插件: npm i vue-class-component vue-property-decorator --save
 * npm i ts-loader typescript   tslint tslint-loader tslint-config-standard --save-dev
+
+>  element、style-resources-loader
+vue add element
+vue add style-resources-loader （或者npm i style-resources-loader -D， 引入sass全局变量，mixin，function等）
+
+> axios
+npm i axios --save
+
+
+### some errors
+* Failed to load plugin html: Cannot find module 'eslint-plugin-html' ：  npm install file-loader –save-dev
+* Uncaught (in promise) DOMException: Failed to execute 'open' on 'XMLHttpRequest': Invalid URL:  url前面一定要加http://
+* 默认验证码图片 ：captchaSrc=require('./default_captcha.jpeg')
