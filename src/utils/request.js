@@ -1,8 +1,9 @@
 // axios encapsulation
 import axios from 'axios'
 import store from '../store/index'
+import baseUrl from './handleUrl'
 
-axios.defaults.baseURL = ''
+axios.defaults.baseURL = baseUrl
 axios.defaults.timeout = 10000
 axios.defaults.withCredentials = true
 axios.defaults.headers = {
