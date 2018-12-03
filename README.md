@@ -33,6 +33,9 @@ vue add style-resources-loader （或者npm i style-resources-loader -D， 引�
 > axios
 npm i axios --save
 
+> vuex-persistedstate
+npm install vuex-persistedstate
+
 > lodash
 npm i lodash --save
 
