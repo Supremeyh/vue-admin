@@ -1,3 +1,5 @@
+import { login } from '../../api/user'
+
 const user = {
   namespaced: false,
   state: {
@@ -19,6 +21,20 @@ const user = {
     },
     SET_TOKEN(state, token) {
       state.token = token
+    }
+  },
+  actions: {
+    // 登录
+    Login({commit}, params) {
+      return new Promise((resolve, reject) => {
+        login(params)
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
     }
   }
 }

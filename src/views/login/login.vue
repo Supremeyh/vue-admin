@@ -14,7 +14,9 @@
           </el-form-item>
           <!-- password -->
           <el-form-item class="input" prop="password">
-            <el-input v-model="form.password" placeholder="请输入登录密码" type="password"></el-input>
+            <el-input v-model="form.password" placeholder="请输入登录密码" :type="passwordType">
+              <i slot="suffix" class="el-icon-view" @click="togglePasswordType"></i>
+            </el-input>
           </el-form-item>
           <!-- captcha -->
           <el-form-item class="input captcha" prop="captcha">
@@ -84,6 +86,7 @@ export default {
         captcha: '' // 验证码
       },
       captchaPic: require('../../assets/images/login-default_captcha.jpeg'), // 验证码图片
+      passwordType: 'password', // 切换密码输入框类型
       loading: false, // loading
       checked: true, // 记住我
       // rules
@@ -149,6 +152,10 @@ export default {
         .catch(err => {
           this.captchaSrc = require('../../assets/images/login-default_captcha.jpeg')
         })
+    },
+    // 切换password的type
+    togglePasswordType() {
+      this.passwordType === 'password' ?  this.passwordType= '' :  this.passwordType = 'password'
     },
     // 记住我
     getUserCookie(){
