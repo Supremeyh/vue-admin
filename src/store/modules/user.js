@@ -1,4 +1,4 @@
-const login = {
+const user = {
   namespaced: false,
   state: {
     id: '',
@@ -17,11 +17,11 @@ const login = {
     SET_NAME(state, name) {
       state.name = name
     },
-    SET_TOKEN(state, id) {
+    SET_TOKEN(state, token) {
       state.token = token
     }
   }
 }
 
 
-export default login
+export default user

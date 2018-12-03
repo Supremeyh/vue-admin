@@ -14,8 +14,8 @@ axios.defaults.headers = {
 // request interceptors
 axios.interceptors.request.use(config => {
   // 每个请求都带上token
-  if(store.state.login.token) {
-    config.headers['Authorization'] = store.state.login.token
+  if(store.state.user.token) {
+    config.headers['Authorization'] = store.state.user.token
   }
   return config
 }, error => {
