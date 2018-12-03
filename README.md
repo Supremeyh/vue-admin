@@ -28,7 +28,7 @@ run your unit tests ` npm run test:unit `
 
 >  element、style-resources-loader
 vue add element
-vue add style-resources-loader （或者npm i style-resources-loader -D， 引入sass全局变量，mixin，function等）
+vue add style-resources-loader （引入sass全局变量，mixin，function等）
 
 > axios
 npm i axios --save
