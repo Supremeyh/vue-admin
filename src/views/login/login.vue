@@ -1,5 +1,24 @@
 <template>
   <div class="login">
+    <!-- particles -->
+    <vue-particles 
+        class="particles" 
+        color="#0084FF" 
+        :particleOpacity="0.6" 
+        :particlesNumber="80" 
+        shapeType="star"
+        :particleSize="4" 
+        linesColor="#dedede" 
+        :linesWidth="1" 
+        :lineLinked="true" 
+        :lineOpacity="0.6"   
+        :linesDistance="150" 
+        :moveSpeed="5" 
+        :hoverEffect="true" 
+        hoverMode="grab" 
+        :clickEffect="true"
+        clickMode="push">
+    </vue-particles>
     <div class="content">
       <div class="panel">
         <!-- header -->
@@ -20,8 +39,8 @@
           </el-form-item>
           <!-- captcha -->
           <el-form-item class="input captcha" prop="captcha">
-            <el-input v-model="form.captcha" placeholder="请输入验证码" type="password"></el-input>
-            <img class="captcha-img" :src="captchaPic" alt="">
+            <el-input v-model="form.captcha" placeholder="请输入验证码" type="password" @keyup.enter.native="handleLogin('form')"></el-input>
+            <img class="captcha-img" :src="captchaSrc" alt="验证码" @click="getCaptcha">
           </el-form-item>
           <!-- remenber -->
           <el-form-item class="remenber">
@@ -34,7 +53,7 @@
           </el-form-item>
           <!-- submit -->
           <el-form-item class="submit">
-            <el-button type="primary" @click.native="handleLogin('form')" :loading="loading">登录</el-button>
+            <el-button class="submit-btn" type="primary" @click.native="handleLogin('form')" :loading="loading">登录</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -85,7 +104,7 @@ export default {
         password: '', // 登录密码
         captcha: '' // 验证码
       },
-      captchaPic: require('../../assets/images/login-default_captcha.jpeg'), // 验证码图片
+      captchaSrc: require('../../assets/images/login-default_captcha.jpeg'), // 验证码图片
       passwordType: 'password', // 切换密码输入框类型
       loading: false, // loading
       checked: true, // 记住我
@@ -111,7 +130,7 @@ export default {
           this.loading = true
           this.$store.dispatch('Login', this.form)
             .then(res => {
-              const dateCode = res.data.code
+              const dataCode = res.data.code
               switch(dataCode){
                 case 2000:
                   if (this.checked) {
@@ -145,7 +164,7 @@ export default {
       this.$store.dispatch('GetCaptcha', this.form.email)
         .then(res => {
           if (res.status === 200) {
-            let blob = new Blob([res.data], { type: 'image/jpeg'})
+            let blob = new Blob([res.data], { type: 'image/jpeg' })
             this.captchaSrc = window.URL.createObjectURL(blob)
           }
         })
@@ -162,7 +181,7 @@ export default {
       let useremail = localStorage.getItem('ls_user_email')
       if (useremail) {
         this.form.email = useremail
-        // this.getCaptcha()
+        this.getCaptcha()
       }
     },
     saveUserCookie(){
@@ -183,6 +202,17 @@ export default {
   text-align: center;
   z-index: 1;
   box-sizing: border-box;
+  // particles
+  .particles{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom:0;
+    left: 0;
+    z-index: 0;
+    background-color: #F2F4F8;
+  }
+  // content
   .content{
     // panel
     .panel{
@@ -212,8 +242,8 @@ export default {
           position: relative;
           .captcha-img{
             position: absolute;
-            top: 1px;
-            right: 1px;
+            top: 2px;
+            right: 2px;
             width: 100px;
             height: 30px;
             cursor: pointer;
@@ -229,7 +259,7 @@ export default {
         .submit{
           background-color: $themeColor;
           border-radius: 4px;
-          button{
+          .submit-btn{
             width: 320px;
             height: 40px;
             color: #fff;

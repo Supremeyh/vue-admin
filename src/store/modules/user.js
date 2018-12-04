@@ -1,4 +1,4 @@
-import { login } from '../../api/user'
+import { login, getCaptcha } from '../../api/user'
 
 const user = {
   namespaced: false,
@@ -28,6 +28,19 @@ const user = {
     Login({commit}, params) {
       return new Promise((resolve, reject) => {
         login(params)
+          .then(response => {
+            commit('SET_TOKEN', response.data.token)
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    // 获取验证码
+    GetCaptcha({commit}, params) {
+      return new Promise((resolve, reject) => {
+        getCaptcha(params)
           .then(response => {
             resolve(response)
           })
