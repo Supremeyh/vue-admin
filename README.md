@@ -33,11 +33,11 @@ vue add style-resources-loader （引入sass全局变量，mixin，function等�
 > axios
 npm i axios --save
 
-> vuex-persistedstate
-npm install vuex-persistedstate --save -dev
-
 > lodash
 npm i lodash --save
+
+> vuex-persistedstate
+npm install vuex-persistedstate --save -dev
 
 > vue-particles
 npm i vue-particles --save -dev
