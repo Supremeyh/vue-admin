@@ -1,0 +1,57 @@
+
+// form
+.el-form-item {
+  margin-bottom: 20px;
+}
+
+// input__inner、textarea__inner
+.el-form-item.is-success .el-input__inner, 
+.el-form-item.is-success .el-input__inner:focus, 
+.el-form-item.is-success .el-textarea__inner, 
+.el-form-item.is-success .el-textarea__inner:focus{
+  border-color: $themeColor;
+}
+
+
+// table
+.el-table{
+  border-radius: 5px;
+  thead{
+    color: #666;
+  }
+}
+
+// menu
+.el-menu-item{
+  width: 180px;
+  min-width: 180px;
+  font-size: 16px;
+  overflow: hidden;
+}
+.el-menu{
+  overflow: hidden;
+}
+.el-submenu{
+  overflow: hidden;
+}
+.el-submenu .el-menu-item{
+  width: 180px;
+  min-width: 180px;
+  font-size: 16px;
+}
+.el-submenu__title{
+  font-size: 16px;
+}
+
+// dialog
+.dialog{
+  border-radius: 5px;
+  .el-dialog__header{
+    .el-dialog__title{
+      font-size: 16px;
+    }
+  }
+  .el-dialog__body{
+    padding: 5px 20px 20px;
+  }
+}
