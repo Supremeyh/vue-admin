@@ -10,12 +10,12 @@ module.exports = {
   // eslint-loader 是否在保存的时候检查
   lintOnSave: true,
   // use the full build with in-browser compiler?
-  compiler: false,
+  // compiler: false,
   // webpack配置
-  chainWebpack: () => {},
-  configureWebpack: () => {},
+  // chainWebpack: () => {},
+  // configureWebpack: () => {},
   // vue-loader 配置项
-  vueLoader: {},
+  // vueLoader: {},
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: false,
   // css相关配置
@@ -32,7 +32,7 @@ module.exports = {
   // 为Babel或TypeScript使用thread-loader。该选项在系统的 CPU 有多于一个内核时自动启用，仅作用于生产构建，在适当的时候开启几个子进程去并发的执行压缩
   parallel: require('os').cpus().length > 1,
   // 是否启用dll
-  dll: false,
+  // dll: false,
   // PWA 插件相关配置
   pwa: {},
   // webpack-dev-server 相关配置

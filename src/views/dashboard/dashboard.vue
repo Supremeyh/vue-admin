@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard">
-    dashboard
+    <div class="content">
+      dashboard
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,7 @@ export default {
 
     }
   }
+
 }
 </script>
 

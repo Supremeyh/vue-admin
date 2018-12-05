@@ -29,7 +29,7 @@
         <el-form class="form" ref="form" :model="form" :rules="rules">
           <!-- email -->
           <el-form-item class="input" prop="email">
-            <el-input v-model="form.email" placeholder="请输入登录邮箱"></el-input>
+            <el-input v-model="form.email" placeholder="请输入登录邮箱" @blur="getCaptcha"></el-input>
           </el-form-item>
           <!-- password -->
           <el-form-item class="input" prop="password">

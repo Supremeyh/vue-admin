@@ -7,9 +7,16 @@ function login(params) {
 }
 
 // 获取验证码
-function getCaptcha(params) {
-  let url ='auth/captcha/' + params
+function getCaptcha(email) {
+  let url ='auth/captcha/' + email
   return request.get(url, { responseType: 'blob' })
 }
 
-export { login, getCaptcha }
+// 退出登录
+function logout() {
+  let url = 'auth/logout'
+  return request.post(url)
+}
+
+
+export { login, getCaptcha, logout }

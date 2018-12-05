@@ -1,4 +1,4 @@
-import { login, getCaptcha } from '../../api/user'
+import { login, getCaptcha, logout } from '../../api/user'
 
 const user = {
   namespaced: false,
@@ -29,6 +29,7 @@ const user = {
       return new Promise((resolve, reject) => {
         login(params)
           .then(response => {
+            commit('SET_NAME', params.email)
             commit('SET_TOKEN', response.data.token)
             resolve(response)
           })
@@ -38,10 +39,23 @@ const user = {
       })
     },
     // 获取验证码
-    GetCaptcha({commit}, params) {
+    GetCaptcha({commit}, email) {
       return new Promise((resolve, reject) => {
-        getCaptcha(params)
+        getCaptcha(email)
           .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
+          })
+      })
+    },
+    // 退出登录
+    Logout({commit}) {
+      return new Promise((resolve, reject) => {
+        logout()
+          .then(response => {
+            localStorage.removeItem('vuex')
             resolve(response)
           })
           .catch(error => {
