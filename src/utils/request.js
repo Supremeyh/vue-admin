@@ -3,7 +3,7 @@ import axios from 'axios'
 import store from '../store/index'
 import router from '../router/index'
 
-import baseUrl from './handleUrl'
+import baseUrl from '../../public/baseUrlConfig'
 
 import { Message } from 'element-ui'
 
